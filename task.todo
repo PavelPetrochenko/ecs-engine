@@ -1,0 +1,48 @@
+Organization:
+    ✔ Task-List @done (8/8/2021, 10:57:41 AM)
+    ✔ Folder Tree @done (8/8/2021, 10:57:58 AM)
+        ✔ config @done (8/8/2021, 10:57:54 AM)
+        ✔ header @done (8/8/2021, 10:57:55 AM)
+        ✔ source @done (8/8/2021, 10:57:56 AM)
+        ✔ test @done (8/8/2021, 11:00:46 AM)
+    ☐ Build-System
+        ☐ Compiler
+        ☐ Debugger
+    ☐ Test-System
+    ☐ Configurate vscode
+        ☐ settings.json    
+        ☐ c_cpp_properties.json
+        ☐ task.json
+        ☐ launch.json
+
+Interface:
+    ☐ Space
+        ☐ space_id use as id for scene or space, each space 
+        haves self image SECS memory
+    ☐ Entity
+        ☐ entity_id use as id for object in world
+    ☐ Component
+        ☐ Struct use as container for data
+    ☐ System
+        ☐ Executes each component by type from SECS memory
+Core:
+    ☐ SECS Memory
+        ☐ pull_component_by_type is block memory with 
+        search by hash O(1) and with self allocate and 
+        alignment memory
+
+Core components implementation:
+    ☐ Render
+        ☐ Sprite
+        ☐ Mesh
+        ☐ Material
+        ☐ Shader
+    ☐ Physic
+        ☐ Collider
+    ☐ Audio
+
+User components implementation:
+    ☐ Component
+        ☐ JSON data
+    ☐ System
+        ☐ simple language
