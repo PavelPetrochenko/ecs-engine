@@ -17,6 +17,10 @@ jobs:
         CC: gcc
     - run: meson test -C build/ -v
     - uses: actions/upload-artifact@v1
+      with:
+        name: Linux_Build
+        path: build/src/engine
+    - uses: actions/upload-artifact@v1
       if: failure()
       with:
         name: Linux_Meson_Testlog
