@@ -1,6 +1,6 @@
 name: build
 
-on: [push]
+on: [push, pull_request]
 
   #on:
   #  push:
@@ -59,10 +59,20 @@ jobs:
       with:
         python-version: '3.x'
     - run: pip install meson ninja
-    - run: meson setup build/
-      env:
-        CC: gcc
-    - run: meson test -C build/ -v
+    - name: Prepare MSVC
+      uses: bus1/cabuild/action/msdevshell@v1
+      with:
+        architecture: x64
+    - name: Prepare Build
+      run: meson setup build
+    - name: Run Build
+      run: meson compile -v -C build
+    - name: Run Test Suite
+      run: meson test -v -C build
+    # - run: meson setup build/
+    #   env:
+    #     CC: gcc
+    # - run: meson test -C build/ -v
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
