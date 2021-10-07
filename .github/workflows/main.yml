@@ -2,16 +2,6 @@ name: build
 
 on: [push, pull_request]
 
-  #on:
-  #  push:
-  #    paths:
-  #      - "**.c"
-  #      - "**.h"
-  #  pull_request:
-  #    paths:
-  #      - "**.c"
-  #      - "**.h"
-
 jobs:
 
   linux:
@@ -59,20 +49,12 @@ jobs:
       with:
         python-version: '3.x'
     - run: pip install meson ninja
-    - name: Prepare MSVC
-      uses: bus1/cabuild/action/msdevshell@v1
+    - uses: bus1/cabuild/action/msdevshell@v1
       with:
         architecture: x64
-    - name: Prepare Build
       run: meson setup build
-    - name: Run Build
       run: meson compile -v -C build
-    - name: Run Test Suite
-      run: meson test -v -C build
-    # - run: meson setup build/
-    #   env:
-    #     CC: gcc
-    # - run: meson test -C build/ -v
+      run: meson test -C build/ -v
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
