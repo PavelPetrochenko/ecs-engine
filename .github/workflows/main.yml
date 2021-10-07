@@ -39,7 +39,12 @@ jobs:
     - run: meson setup build/
       env:
         CC: gcc
+    - run: meson compile -C build/
     - run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      with:
+        name: MacOS_Build
+        path: build/src/engine
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
@@ -60,6 +65,10 @@ jobs:
     - run: meson setup build
     - run: meson compile -v -C build
     - run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Windows_Build
+        path: build/src/engine
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
