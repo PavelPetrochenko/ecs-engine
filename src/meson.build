@@ -1,4 +1,4 @@
-libcore = shared_library(
+core = shared_library(
   'core',
   'core.c',
   include_directories : inc,
@@ -8,5 +8,5 @@ engine = executable(
   'engine',
   'main.c',
   include_directories : inc,
-  link_with : libcore,
+  link_with : core,
   install : true)
