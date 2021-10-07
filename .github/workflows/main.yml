@@ -2,18 +2,69 @@ name: build
 
 on: [push]
 
+  #on:
+  #  push:
+  #    paths:
+  #      - "**.c"
+  #      - "**.h"
+  #  pull_request:
+  #    paths:
+  #      - "**.c"
+  #      - "**.h"
+
 jobs:
-  hello_world_job:
+
+  linux:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - run: pip install meson ninja
+    - run: meson setup build/
+      env:
+        CC: gcc
+    - run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Linux_Meson_Testlog
+        path: build/meson-logs/testlog.txt
+
+  macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - run: brew install gcc
+    - run: pip install meson ninja
+    - run: meson setup build/
+      env:
+        CC: gcc
+    - run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: MacOS_Meson_Testlog
+        path: build/meson-logs/testlog.txt
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - run: pip install meson ninja
+    - run: meson setup build/
+      env:
+        CC: gcc
+    - run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Windows_Meson_Testlog
+        path: build/meson-logs/testlog.txt
