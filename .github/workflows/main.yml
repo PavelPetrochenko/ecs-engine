@@ -1,14 +1,16 @@
 name: build
 
-on:
-  push:
-    paths:
-      - "**.c"
-      - "**.h"
-  pull_request:
-    paths:
-      - "**.c"
-      - "**.h"
+on: [push]
+
+  #on:
+  #  push:
+  #    paths:
+  #      - "**.c"
+  #      - "**.h"
+  #  pull_request:
+  #    paths:
+  #      - "**.c"
+  #      - "**.h"
 
 jobs:
 
