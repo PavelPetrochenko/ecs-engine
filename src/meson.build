@@ -1,12 +1,14 @@
-core = shared_library(
+core = static_library(
   'core',
   'core.c',
   include_directories : inc,
-  install : true)
+  install : true
+)
 
 engine = executable(
   'engine',
   'main.c',
   include_directories : inc,
   link_with : core,
-  install : true)
+  install : true
+)
