@@ -12,14 +12,13 @@ RED='\033[1;31m'
 NC='\033[0m'
 
 echo -e \\a${GREEN}[MESON BUILD]${NC}
-if (exec meson build .)
+if (exec meson setup build)
 then
-    cd build
     echo -e \\a${GREEN}[NINJA BUILD]${NC}
-    if (exec ninja)
+    if (exec meson compile -C build)
     then
 	echo -e \\a${GREEN}[TEST]${NC}
-	if (exec ninja test)
+	if (exec meson test -C build)
 	then
 	    echo -e \\a${GREEN}[ALL COMPLETE]${NC}
 	else
