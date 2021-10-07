@@ -1,8 +1,6 @@
-#include <stdio.h>
 #include "../include/core.h"
 
-int main ()
+void print_version()
 {
-    printf("VERSION %.1f", VERSION);
-    return 0;
+    printf("VERSION %.1f\n", VERSION);
 }
