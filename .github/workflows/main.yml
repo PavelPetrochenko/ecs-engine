@@ -52,9 +52,9 @@ jobs:
     - uses: bus1/cabuild/action/msdevshell@v1
       with:
         architecture: x64
-      run: meson setup build
-      run: meson compile -v -C build
-      run: meson test -C build/ -v
+    - run: meson setup build
+    - run: meson compile -v -C build
+    - run: meson test -C build/ -v
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
