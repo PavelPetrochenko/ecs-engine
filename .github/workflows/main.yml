@@ -63,8 +63,9 @@ jobs:
       env:
         CC: gcc
     - run: meson compile -C build/
-    # - uses: actions/upload-artifact@v1
-    #   if: failure()
-    #   with:
-    #     name: Windows_Meson_Testlog
-    #     path: build/meson-logs/testlog.txt
+    - run: meson test -C build/
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Windows_Meson_Testlog
+        path: build/meson-logs/testlog.txt
