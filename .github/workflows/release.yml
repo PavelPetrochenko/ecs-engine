@@ -19,8 +19,10 @@ jobs:
         CC: gcc
     - run: meson compile -C build/
     - run: meson test -C build/ -v
-    - run: |
-        zip --junk-paths engine.zip build/src/engine 
+    - uses: papeloto/action-zip@v1
+      with:
+        files: build/src/ engine
+        dest: engine.zip
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -28,7 +30,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          release_name: Release Linux ${{ github.ref }}
           draft: false
           prerelease: false
     - name: Upload Release Asset
@@ -56,8 +58,10 @@ jobs:
         CC: gcc
     - run: meson compile -C build/
     - run: meson test -C build/ -v
-    - run: |
-        zip --junk-paths engine.zip build/src/engine 
+    - uses: papeloto/action-zip@v1
+      with:
+        files: build/src/ engine
+        dest: engine.zip
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -65,7 +69,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        release_name: Release MacOS ${{ github.ref }}
         draft: false
         prerelease: false
     - name: Upload Release Asset
@@ -93,8 +97,10 @@ jobs:
     - run: meson setup build
     - run: meson compile -v -C build
     - run: meson test -C build/ -v
-    - run: |
-        zip --junk-paths engine.zip build/src/engine.exe 
+    - uses: papeloto/action-zip@v1
+      with:
+        files: build/src/ engine
+        dest: engine.zip
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -102,7 +108,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        release_name: Release Windows ${{ github.ref }}
         draft: false
         prerelease: false
     - name: Upload Release Asset
