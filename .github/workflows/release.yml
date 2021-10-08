@@ -9,7 +9,7 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'
@@ -20,7 +20,7 @@ jobs:
     - run: meson compile -C build/
     - run: meson test -C build/ -v
     - run: |
-        zip build/src/ engine 
+        zip build/src/engine 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -40,7 +40,7 @@ jobs:
   macos:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'
@@ -52,7 +52,7 @@ jobs:
     - run: meson compile -C build/
     - run: meson test -C build/ -v
     - run: |
-        zip build/src/ engine 
+        zip build/src/engine 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -72,7 +72,7 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-python@v1
       with:
         python-version: '3.x'
@@ -84,7 +84,7 @@ jobs:
     - run: meson compile -v -C build
     - run: meson test -C build/ -v
     - run: |
-        zip build/src/ engine.exe 
+        zip build/src/engine.exe 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
