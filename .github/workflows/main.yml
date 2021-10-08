@@ -17,6 +17,7 @@ jobs:
       env:
         CC: gcc
     - name: Build
+      if: startsWith(github.ref, 'refs/tags/')
       run: meson compile -C build/
     - name: Tests
       run: meson test -C build/ -v
@@ -25,11 +26,16 @@ jobs:
       with:
         name: Linux_Meson_Testlog
         path: build/meson-logs/testlog.txt
+    - uses: papeloto/action-zip@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: build/src/ engine
+        dest: engine-linux.zip
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: build/src/engine
+        files: engine-linux.zip
 
   macos:
     runs-on: macos-latest
@@ -56,6 +62,7 @@ jobs:
         name: MacOS_Meson_Testlog
         path: build/meson-logs/testlog.txt
     - uses: papeloto/action-zip@v1
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         files: build/src/ engine
         dest: engine-macos.zip
@@ -80,6 +87,7 @@ jobs:
         architecture: x64
     - run: meson setup build
     - name: Build
+      if: startsWith(github.ref, 'refs/tags/')
       run: meson compile -C build/
     - name: Tests
       run: meson test -C build/ -v
@@ -88,8 +96,13 @@ jobs:
       with:
         name: Windows_Meson_Testlog
         path: build/meson-logs/testlog.txt
+    - uses: papeloto/action-zip@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: build/src/ engine.exe
+        dest: engine-windows.zip
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: build/src/engine.exe
+        files: engine-windows.exe
