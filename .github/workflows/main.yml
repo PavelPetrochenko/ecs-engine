@@ -29,8 +29,7 @@ jobs:
     - uses: papeloto/action-zip@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: build/src/ engine
-        recursive: false
+        files: build/src/engine
         dest: engine-linux.zip
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -65,8 +64,7 @@ jobs:
     - uses: papeloto/action-zip@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: build/src/ engine
-        recursive: false 
+        files: build/src/engine
         dest: engine-macos.zip
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -101,8 +99,7 @@ jobs:
     - uses: papeloto/action-zip@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: build/src/ engine.exe
-        recursive: false
+        files: build/src/engine.exe
         dest: engine-windows.zip
     - name: Release
       uses: softprops/action-gh-release@v1
