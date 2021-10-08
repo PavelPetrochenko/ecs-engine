@@ -8,7 +8,7 @@ Organization:
     ✔ CI/CD Build-Test-Deploy @done(21-10-08 00:36)
         ✔ GitHub-Actions @done(21-10-08 00:36)
             ✔ Build-Test @done(21-10-08 00:34)
-            ✘ Release @cancelled(21-10-08 00:35)
+            ✔ Release @done(21-10-08 17:30)
         ✘ Docker @cancelled(21-10-08 00:36)
         ✔ CMake @done(21-10-06 19:41)
         ✔ Doctest @done(21-10-08 00:34)
