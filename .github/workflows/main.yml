@@ -27,9 +27,9 @@ jobs:
         path: build/meson-logs/testlog.txt
     - name: Release
       uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: README.md
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: README.md
 
   macos:
     runs-on: macos-latest
