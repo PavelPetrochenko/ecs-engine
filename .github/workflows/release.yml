@@ -24,6 +24,8 @@ jobs:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
@@ -32,6 +34,8 @@ jobs:
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         asset_path: ./engine.zip
         asset_name: ecs-engine-linux.zip
@@ -56,6 +60,8 @@ jobs:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
@@ -64,6 +70,8 @@ jobs:
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         asset_path: ./engine.zip
         asset_name: ecs-engine-macos.zip
@@ -88,6 +96,8 @@ jobs:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
@@ -96,6 +106,8 @@ jobs:
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         asset_path: ./engine.zip
         asset_name: ecs-engine-windows.zip
