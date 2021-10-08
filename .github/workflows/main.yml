@@ -29,13 +29,15 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: README.md
+        files: build/src/engine
 
   macos:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Prepare Build
+      uses: actions/setup-python@v1
       with:
         python-version: '3.x'
     - run: brew install gcc
@@ -43,18 +45,28 @@ jobs:
     - run: meson setup build/
       env:
         CC: gcc
-    - run: meson test -C build/ -v
+    - name: Build
+      run: meson compile -C build/
+    - name: Tests
+      run: meson test -C build/ -v
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
         name: MacOS_Meson_Testlog
         path: build/meson-logs/testlog.txt
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: build/src/engine
 
   windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Prepare Build
+      uses: actions/setup-python@v1
       with:
         python-version: '3.x'
     - run: pip install meson ninja
@@ -62,9 +74,17 @@ jobs:
       with:
         architecture: x64
     - run: meson setup build
-    - run: meson test -C build/ -v
+    - name: Build
+      run: meson compile -C build/
+    - name: Tests
+      run: meson test -C build/ -v
     - uses: actions/upload-artifact@v1
       if: failure()
       with:
         name: Windows_Meson_Testlog
         path: build/meson-logs/testlog.txt
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: build/src/engine.exe
