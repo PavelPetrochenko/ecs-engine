@@ -8,12 +8,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Prepare Build
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
     - run: pip install meson ninja
-    - name: Prepare Build
-      run: meson setup build/
+    - run: meson setup build/
       env:
         CC: gcc
     - name: Build
