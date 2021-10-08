@@ -4,9 +4,3 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/deadbit-dev/ecs-engine/blob/main/LICENSE)
 ---
 This yourself engine based on SOA or Entity Component System.
-<<<<<<< HEAD
-
-RELEASE v1.0
-=======
-Help me!
->>>>>>> 602eb09255d320fad306b2f54f4c33af54d88806
