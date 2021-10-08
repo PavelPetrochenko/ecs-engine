@@ -23,13 +23,13 @@ jobs:
       with:
         files: build/src/ engine
         dest: engine.zip
-    - name: Create Release
-      id: create_release
+    - name: Create Release Linux
+      id: create_release_linux
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: Linux ${{ github.ref }}
+          tag_name: ${{ github.ref }}
           release_name: Release Linux ${{ github.ref }}
           draft: false
           prerelease: false
@@ -62,13 +62,13 @@ jobs:
       with:
         files: build/src/ engine
         dest: engine.zip
-    - name: Create Release
-      id: create_release
+    - name: Create Release MacOS
+      id: create_release_macos
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: MacOS ${{ github.ref }}
+        tag_name: ${{ github.ref }}
         release_name: Release MacOS ${{ github.ref }}
         draft: false
         prerelease: false
@@ -101,13 +101,13 @@ jobs:
       with:
         files: build/src/ engine
         dest: engine.zip
-    - name: Create Release
-      id: create_release
+    - name: Create Release Windows
+      id: create_release_windows
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: Windows ${{ github.ref }}
+        tag_name: ${{ github.ref }}
         release_name: Release Windows ${{ github.ref }}
         draft: false
         prerelease: false
