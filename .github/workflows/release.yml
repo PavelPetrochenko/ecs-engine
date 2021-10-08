@@ -37,6 +37,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./engine.zip
         asset_name: ecs-engine-linux.zip
         asset_content_type: application/zip
@@ -73,6 +74,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./engine.zip
         asset_name: ecs-engine-macos.zip
         asset_content_type: application/zip
@@ -109,6 +111,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./engine.zip
         asset_name: ecs-engine-windows.zip
         asset_content_type: application/zip
