@@ -18,7 +18,7 @@ then
     if (exec meson compile -C build)
     then
 	echo -e \\a${GREEN}[TEST]${NC}
-	if (exec meson test -C build)
+	if (exec meson test -C build -v)
 	then
 	    echo -e \\a${GREEN}[ALL COMPLETE]${NC}
 	else
