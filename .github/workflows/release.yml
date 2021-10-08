@@ -29,7 +29,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: ${{ github.ref }}
+          tag_name: Linux ${{ github.ref }}
           release_name: Release Linux ${{ github.ref }}
           draft: false
           prerelease: false
@@ -68,7 +68,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
+        tag_name: MacOS ${{ github.ref }}
         release_name: Release MacOS ${{ github.ref }}
         draft: false
         prerelease: false
@@ -107,7 +107,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
+        tag_name: Windows ${{ github.ref }}
         release_name: Release Windows ${{ github.ref }}
         draft: false
         prerelease: false
