@@ -20,7 +20,7 @@ jobs:
     - run: meson compile -C build/
     - run: meson test -C build/ -v
     - run: |
-        zip build/src/engine 
+        zip --junk-paths engine.zip build/src/engine 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -52,7 +52,7 @@ jobs:
     - run: meson compile -C build/
     - run: meson test -C build/ -v
     - run: |
-        zip build/src/engine 
+        zip --junk-paths engine.zip build/src/engine 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -84,7 +84,7 @@ jobs:
     - run: meson compile -v -C build
     - run: meson test -C build/ -v
     - run: |
-        zip build/src/engine.exe 
+        zip --junk-paths engine.zip build/src/engine.exe 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
