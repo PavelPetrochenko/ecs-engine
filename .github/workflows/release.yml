@@ -29,12 +29,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: ${{ github.ref }}
+          tag_name: Linux ${{ github.ref }}
           release_name: Release Linux ${{ github.ref }}
           draft: false
           prerelease: false
-    - name: Upload Release Asset
-      id: upload-release-asset
+    - name: Upload Release Linux Asset
+      id: upload-release-linux-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -72,8 +72,8 @@ jobs:
         release_name: Release MacOS ${{ github.ref }}
         draft: false
         prerelease: false
-    - name: Upload Release Asset
-      id: upload-release-asset
+    - name: Upload Release MacOS Asset
+      id: upload-release-macos-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -111,8 +111,8 @@ jobs:
         release_name: Release Windows ${{ github.ref }}
         draft: false
         prerelease: false
-    - name: Upload Release Asset
-      id: upload-release-asset
+    - name: Upload Release Windows Asset
+      id: upload-release-windows-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
