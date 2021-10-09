@@ -21,16 +21,16 @@ Interface:
     ☐ System
     
 Core:
-    ☐ Allocate Memory Managment
+    ☐ Memory Manager (Allocator)
         ☐ Block Memory
         ☐ Pool Memory
     ☐ Resources Loader
     ☐ Event System
     ☐ Managment ECS
-        ☐ Container/Scene Manager
-        ☐ Entity Manager
-        ☐ Componet Manager
-        ☐ System Manager
+        ☐ Container/Scene Managment
+        ☐ Entity Managment
+        ☐ Componet Managment
+        ☐ System Managment
     ☐ Module Loader
 
 Container/Scene Editor:
@@ -47,14 +47,27 @@ Container/Scene Editor:
     ☐ Make/Build Modules
     ☐ Search Modules
 
-Core components implementation:
-    ☐ Transform
-    ☐ Render
-    ☐ Physic
-    ☐ Audio
-    ☐ Network
+Core Module implementation:
+    ☐ Components
+        ☐ Transform
+            ☐ Position
+            ☐ Rotation
+            ☐ Scale
+        ☐ Sprite
+        ☐ Mesh
+        ☐ Material
+        ☐ Shader
+        ☐ Collider
+        ☐ Gravitation
+    ☐ Systems
+        ☐ Render System
+        ☐ Physics
+            ☐ Collision System
+            ☐ Gravitation System
+        ☐ Audio System
+        ☐ Network System
 
-User components implementation:
+User Module Implementation Interface:
     ☐ Module
         ☐ Implement Type
             ☐ Component

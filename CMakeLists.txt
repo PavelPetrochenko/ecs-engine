@@ -1,11 +1,9 @@
-cmake_minimum_required(VERSION 3.16)
-project(ecs-engine VERSION 1.0 LANGUAGES C CXX)
+cmake_minimum_required(VERSION 3.6)
+project(ecs-engine)
 
-set(CMAKE_C_STANDARD 17)
-set(CMAKE_C_STANDARD_REQUIRED True)
+set(ESCENGINE_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-add_subdirectory(src engine)
-add_subdirectory(tests tests)
+add_subdirectory(${ESCENGINE_ROOT_PATH}/core core)
+list(APPEND EXTRA_LIBS core)
+add_subdirectory(${ESCENGINE_ROOT_PATH}/editor editor)
+add_subdirectory(${ESCENGINE_ROOT_PATH}/tests tests)
