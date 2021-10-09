@@ -1,6 +1,6 @@
 #include <string.h>
 #include <stdio.h>
-#include "../core/core.h"
+#include "core.h"
 
 int main (int argc, char *argv[])
 {
