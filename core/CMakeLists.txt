@@ -1,14 +1,14 @@
-add_library(core STATIC core.c)
-target_include_directories(core
-    INTERFACE 
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-        $<INSTALL_INTERFACE:include>
+cmake_minimum_required(VERSION 3.6)
+project(core)
+
+add_library(${PROJECT_NAME} STATIC core.c)
+target_include_directories(${PROJECT_NAME}
+        PUBLIC ${PROJECT_SOURCE_DIR}
 )
 
-install(TARGETS core 
+install(TARGETS ${PROJECT_NAME}  
         DESTINATION lib
-        EXPORT core_targets
 )
-install(FILES utils.h core.h 
+install(FILES core.h
         DESTINATION include
 )

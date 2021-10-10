@@ -1,10 +1,11 @@
+cmake_minimum_required(VERSION 3.6)
+project(editor)
+
 add_executable(editor main.c)
-set_target_properties(editor PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
-target_include_directories(
-    editor PUBLIC
-    "${PROJECT_SOURCE_DIR}/core"
+target_include_directories(editor 
+    PRIVATE ${CMAKE_SOURCE_DIR}/core
 )
 
-target_link_libraries(editor PUBLIC ${EXTRA_LIBS})
+target_link_libraries(editor PUBLIC core)
 
 install(TARGETS editor DESTINATION bin)

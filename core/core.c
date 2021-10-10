@@ -1,11 +1,11 @@
 #include "core.h"
 
+//FIXME: version from cmake config
 void print_version()
 {
-    // printf(
-    //     "VERSION %d.%d",
-    //     ECSENGINE_VERSION_MAJOR, 
-    //     ECSENGINE_VERSION_MINOR
-    // );
-    printf("OK");
+    printf(
+        "VERSION %d.%d",
+        1,  // ECSENGINE_VERSION_MAJOR, 
+        0   // ECSENGINE_VERSION_MINOR
+    );
 }
