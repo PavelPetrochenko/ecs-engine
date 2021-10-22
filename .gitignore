@@ -43,7 +43,7 @@
 
 include/divisible/*
 
-# Local 
+# Local
 
 .idea/*.xml
 
@@ -56,3 +56,5 @@ test/test_runner
 
 # Debug
 *.pdb
+
+.vscode
