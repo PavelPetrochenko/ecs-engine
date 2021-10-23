@@ -16,58 +16,45 @@ Organization:
 
 Interface:
     ☐ Container/Scene
+        id use as id for container/scene, 
+        each container/scene haves self image memory
     ☐ Entity
+        entity_id use as id for object in container
     ☐ Component
+        Struct use as container for data
     ☐ System
+        Executes each component by type from image memory
     
 Core:
-    ☐ Memory Manager (Allocator)
-        ☐ Block Memory
-        ☐ Pool Memory
-    ☐ Resources Loader
-    ☐ Event System
     ☐ Managment ECS
-        ☐ Container/Scene Managment
-        ☐ Entity Managment
-        ☐ Componet Managment
-        ☐ System Managment
+        ☐ Allocate Memory Managment
+            ☐ Block Memory
+                pull_component_by_type is block memory with 
+                search by hash O(1) and with self allocate and 
+                alignment memory
+            ☐ Pool Memory
+        ☐ Event System
+        ☐ Container/Scene Manager
+        ☐ Entity Manager
+        ☐ Componet Manager
+        ☐ System Manager
     ☐ Module Loader
+        ☐ Compile/Linker Types/System
 
-Container/Scene Editor:
-    ☐ Add / Register
-        ☐ Entites 
-        ☐ Components
-        ☐ Systems
-    ☐ Entity management (conversion)
-        ☐ Position
-        ☐ Rotation
-        ☐ Scale
-        ☐ Pivot alignment
-    ☐ Cross-platform Build
-    ☐ Make/Build Modules
-    ☐ Search Modules
-
-Core Module implementation:
-    ☐ Components
-        ☐ Transform
-            ☐ Position
-            ☐ Rotation
-            ☐ Scale
+Core components implementation:
+    ☐ Render
         ☐ Sprite
         ☐ Mesh
         ☐ Material
         ☐ Shader
+    ☐ Physic
         ☐ Collider
-        ☐ Gravitation
-    ☐ Systems
-        ☐ Render System
-        ☐ Physics
-            ☐ Collision System
-            ☐ Gravitation System
-        ☐ Audio System
-        ☐ Network System
+    ☐ Audio
+        ☐ Track
+    ☐ Network
+        ☐ Block Data
 
-User Module Implementation Interface:
+User components implementation:
     ☐ Module
         ☐ Implement Type
             ☐ Component

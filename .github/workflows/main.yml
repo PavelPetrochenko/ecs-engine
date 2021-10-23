@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on: [push, pull_request]
 
@@ -12,10 +12,30 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - run: pip install ninja
+    - run: pip install meson ninja
+    - run: meson setup build/
       env:
         CC: gcc
     - name: Build
+      if: startsWith(github.ref, 'refs/tags/')
+      run: meson compile -C build/
+    - name: Tests
+      run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Linux_Meson_Testlog
+        path: build/meson-logs/testlog.txt
+    - uses: papeloto/action-zip@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: build/src/engine
+        dest: engine-linux.zip
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: engine-linux.zip
 
   macos:
     runs-on: macos-latest
@@ -27,10 +47,30 @@ jobs:
       with:
         python-version: '3.x'
     - run: brew install gcc
-    - run: pip install ninja
+    - run: pip install meson ninja
+    - run: meson setup build/
       env:
         CC: gcc
     - name: Build
+      if: startsWith(github.ref, 'refs/tags/')
+      run: meson compile -C build/
+    - name: Tests
+      run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: MacOS_Meson_Testlog
+        path: build/meson-logs/testlog.txt
+    - uses: papeloto/action-zip@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: build/src/engine
+        dest: engine-macos.zip
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: engine-macos.zip
 
   windows:
     runs-on: windows-latest
@@ -41,8 +81,28 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    - run: pip install ninja
+    - run: pip install meson ninja
     - uses: bus1/cabuild/action/msdevshell@v1
       with:
         architecture: x64
+    - run: meson setup build
     - name: Build
+      if: startsWith(github.ref, 'refs/tags/')
+      run: meson compile -C build/
+    - name: Tests
+      run: meson test -C build/ -v
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: Windows_Meson_Testlog
+        path: build/meson-logs/testlog.txt
+    - uses: papeloto/action-zip@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: build/src/engine.exe
+        dest: engine-windows.zip
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: engine-windows.zip
