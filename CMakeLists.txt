@@ -14,6 +14,16 @@ if (WIN32)
 	set(ENGINE_ABI x64)
 endif()
 
+if(APPLE)
+	set(ENGINE_PLATFORM macos)
+	set(ENGINE_ABI x64)
+endif()
+
+if(UNIX AND NOT APPLE)
+	set(ENGINE_PLATFORM linux)
+	set(ENGINE_ABI x64)
+endif()
+
 # =============================================================================
 # General compile flags
 # =============================================================================
