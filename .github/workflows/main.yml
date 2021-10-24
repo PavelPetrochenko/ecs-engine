@@ -69,13 +69,12 @@ jobs:
         shell: bash
         run: |
           mkdir build
-      #   mkdir instdir
           cmake \
             -S . \
             -B build \
             -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
             -G "${{ matrix.config.generators }}" \
-      #     -DCMAKE_INSTALL_PREFIX:PATH=instdir
+      #      -DCMAKE_INSTALL_PREFIX:PATH=instdir
 
       - name: Build
         shell: bash
