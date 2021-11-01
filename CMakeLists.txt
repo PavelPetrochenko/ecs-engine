@@ -4,7 +4,6 @@ project(ecs-engine VERSION 0.01)
 # =============================================================================
 # Variables
 # =============================================================================
-
 set(DIR_THIRDPARTY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
 set(DIR_EXPORT ${CMAKE_CURRENT_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE})
 set(DIR_ENGINE_API ${CMAKE_CURRENT_SOURCE_DIR}/include)
