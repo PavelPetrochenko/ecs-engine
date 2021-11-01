@@ -5,5 +5,5 @@
 
 namespace core::utils::log
 {
-    ENGINE_API ENGINE_INLINE void print_version();
+    ENGINE_API void print_version();
 }

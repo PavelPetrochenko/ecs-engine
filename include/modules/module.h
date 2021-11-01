@@ -4,5 +4,5 @@
 
 namespace modules::module
 {
-    ENGINE_API ENGINE_INLINE int r_one();
+    ENGINE_API int r_one();
 }
