@@ -37,6 +37,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: ilammy/msvc-dev-cmd@v1
       - name: Install dependencies on windows
         if: startsWith(matrix.config.os, 'windows')
         run: |
