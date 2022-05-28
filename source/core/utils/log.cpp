@@ -2,5 +2,5 @@
 
 void core::utils::log::print_version()
 {
-    printf("VERSION %d.0%d", 0, 1); // FIXME: change format
+    printf("VERSION %d.%d.%d", 0, 0, 1);
 }

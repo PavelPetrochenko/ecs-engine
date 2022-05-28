@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(ecs-engine VERSION 0.01)
+project(ecs-engine VERSION 0.0.1)
 
 # =============================================================================
 # Variables
