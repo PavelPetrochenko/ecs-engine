@@ -4,9 +4,15 @@
 #include <utils/log.h>
 #include <modules/module.h>
 
-int main (int argc, char *argv[])
+int main (int argc, char **argv)
 {
-    if(argc > 1 && memcmp(argv[1], "-v", sizeof(char*) * 2))
-	core::utils::log::print_version();
-    return modules::module::r_one();
+    switch (argc) 
+    {
+        case 2:
+            int is_v = strncmp(argv[1], "-v", 2);
+            int is_version = strncmp(argv[1], "--version", 9);
+            if (is_v || is_version) core::utils::log::print_version();
+    }
+
+    return 0;
 }
