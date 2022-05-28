@@ -40,6 +40,7 @@
 **/*.cbp
 **/CMakeScripts
 **/compile_commands.json
+**/CMakeSettings.json
 
 include/divisible/*
 
@@ -57,3 +58,6 @@ test/test_runner
 *.pdb
 .cache
 .vscode
+
+# Visual Studio Code
+.vs/*
