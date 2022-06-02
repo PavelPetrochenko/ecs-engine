@@ -61,3 +61,4 @@ test/test_runner
 
 # Visual Studio Code
 .vs/*
+3rdparty/volk/
