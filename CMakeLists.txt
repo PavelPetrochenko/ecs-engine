@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(ecs-engine VERSION 0.0.1)
+project(ecs-engine VERSION 0.0.2)
 
 # =============================================================================
 # Variables
@@ -35,8 +35,21 @@ else()
 endif()
 
 # =============================================================================
+# General includes
+# =============================================================================
+include_directories("3rdparty/")
+include_directories("3rdparty/glfw/include")
+include_directories("3rdparty/volk")
+include_directories("3rdparty/vulkan")
+
+# =============================================================================
+# General libraries
+# =============================================================================
+link_directories("3rdparty/glfw/lib")
+
+# =============================================================================
 # Sub-projects
 # =============================================================================
 add_subdirectory(source/core)
-add_subdirectory(source/modules)
-add_subdirectory(source/editor)
+add_subdirectory(source/render)
+add_subdirectory(source/app)
