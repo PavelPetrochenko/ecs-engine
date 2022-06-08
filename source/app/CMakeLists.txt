@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-set(TARGET app)
+set(TARGET game)
 
 project(${TARGET})
 
@@ -29,4 +29,4 @@ target_include_directories(${TARGET} PUBLIC ${API_DIR})
 # ==================================================================================================
 # Libraries
 # ==================================================================================================
-target_link_libraries(${TARGET} PUBLIC glfw3 core render)
+target_link_libraries(${TARGET} PUBLIC core glfw_window vk_render)

@@ -38,6 +38,7 @@ endif()
 # General includes
 # =============================================================================
 include_directories("3rdparty/")
+include_directories("3rdparty/entt/single_include")
 include_directories("3rdparty/glfw/include")
 include_directories("3rdparty/volk")
 include_directories("3rdparty/vulkan")
@@ -51,5 +52,6 @@ link_directories("3rdparty/glfw/lib")
 # Sub-projects
 # =============================================================================
 add_subdirectory(source/core)
-add_subdirectory(source/render)
+add_subdirectory(source/glfw_window)
+add_subdirectory(source/vk_render)
 add_subdirectory(source/app)
