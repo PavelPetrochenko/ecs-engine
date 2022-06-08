@@ -59,6 +59,9 @@ test/test_runner
 .cache
 .vscode
 
-# Visual Studio Code
+# Visual Studio
 .vs/*
+
+# Sub Modules
 3rdparty/volk/
+3rdparty/entt/

@@ -2,3 +2,8 @@
 	path = 3rdparty/volk
 	url = https://github.com/zeux/volk
 	branch = master
+
+[submodule "3rdparty/entt"]
+	path = 3rdparty/entt
+	url = https://github.com/skypjack/entt
+	branch = master
