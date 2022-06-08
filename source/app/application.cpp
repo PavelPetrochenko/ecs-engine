@@ -1,33 +1,35 @@
 #include "application.h"
 
 void Application::run() {
-    initWindow();
-    initVulkan();
-    mainLoop();
-    cleanup();
+    load();
+    init();
+    exec();
+    close();
 }
 
-void Application::initWindow() {
-    glfwInit();
-
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-
-    window = glfwCreateWindow(WIDTH, HEIGHT, "Window", nullptr, nullptr);
+void Application::load() {
+    info = new Info{ "Game", 800, 600 };
+    window = new GLFWWindow();
+    render = new VulkanRender();
 }
 
-void Application::initVulkan() {
-
+void Application::init() {
+    window->init(info->name, info->width, info->height);
+    render->init(info->name, "Engine");
 }
 
-void Application::mainLoop() {
-    while (!glfwWindowShouldClose(window))
+void Application::exec() {
+    while (!window->isClose())
     {
-        glfwPollEvents();
+        window->proccesEvents();
     }
 }
 
+void Application::close() {
+    cleanup();
+}
+
 void Application::cleanup() {
-    glfwDestroyWindow(window);
-    glfwTerminate();
+    render->cleanup();
+    window->cleanup();
 }
