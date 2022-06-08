@@ -1,3 +1,10 @@
+# CMake specific
+[Bb]uild/
+**/CMakeSettings.json
+
+# Visual Studio
+.vs/*
+
 # Prerequisites
 *.d
 
@@ -5,56 +12,17 @@
 *.slo
 *.lo
 *.o
-*.obj
 
 # Precompiled Headers
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
 # Fortran module files
 *.mod
 *.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
 
 # Executables
 *.exe
 *.out
 *.app
-**/cmake-build-debug
-**/CMakeCache.txt
-**/cmake_install.cmake
-**/install_manifest.txt
-**/CMakeFiles/
-**/CTestTestfile.cmake
-**/Makefile
-**/*.cbp
-**/CMakeScripts
-**/compile_commands.json
-**/CMakeSettings.json
-
-include/divisible/*
-
-# Local
-build/**/*
-
-lib/*
-bin/*
-test/test_runner
-
-# Debug
-*.pdb
-.cache
-.vscode
-
-# Visual Studio
-.vs/*
+imgui.ini
