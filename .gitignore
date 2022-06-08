@@ -45,9 +45,6 @@
 include/divisible/*
 
 # Local
-
-.idea/*.xml
-
 build/**/*
 
 lib/*
@@ -61,7 +58,3 @@ test/test_runner
 
 # Visual Studio
 .vs/*
-
-# Sub Modules
-3rdparty/volk/
-3rdparty/entt/
