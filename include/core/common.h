@@ -1,7 +1,5 @@
 #pragma once
 
-namespace core::utils
-{
 #ifdef _WIN32
 	#define ENGINE_EXPORT __declspec(dllexport)
 	#define ENGINE_IMPORT __declspec(dllimport)
@@ -17,4 +15,5 @@ namespace core::utils
 #else
 	#define ENGINE_API ENGINE_IMPORT
 #endif
-}
+
+#include <cstdint>
