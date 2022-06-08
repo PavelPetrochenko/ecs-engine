@@ -1,9 +1,8 @@
 #pragma once
 
-#include <core/utils.h>
-#include <stdio.h>
+#include <core/common.h>
 
 namespace core::log
 {
-    ENGINE_API void dlog();
+	ENGINE_API void dlog();
 }
