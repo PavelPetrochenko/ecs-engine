@@ -1,6 +1,7 @@
-[submodule "3rdparty/volk"]
-	path = 3rdparty/volk
+
+[submodule "Render/3rdparty/volk"]
+	path = Render/3rdparty/volk
 	url = https://github.com/zeux/volk
-[submodule "3rdparty/entt"]
-	path = 3rdparty/entt
+[submodule "Core/3rdparty/entt"]
+	path = Core/3rdparty/entt
 	url = https://github.com/skypjack/entt
